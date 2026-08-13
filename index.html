@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A responsive classic Tic-Tac-Toe game for two players or against the computer."
+    />
+    <title>Tic Tac Toe | Classic Strategy Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">Strategy starts here</p>
+        <h1>Tic Tac Toe</h1>
+        <p class="subtitle">Classic 3 <span aria-hidden="true">×</span><span class="sr-only">by</span> 3 Strategy Game</p>
+      </header>
+
+      <section class="mode-picker" aria-labelledby="mode-heading">
+        <p id="mode-heading" class="mode-label">Choose mode</p>
+        <div class="mode-options" role="radiogroup" aria-label="Game mode">
+          <label class="mode-option">
+            <input type="radio" name="game-mode" value="pvp" checked />
+            <span class="mode-icon" aria-hidden="true">♟</span>
+            <span>Player vs Player</span>
+          </label>
+          <label class="mode-option">
+            <input type="radio" name="game-mode" value="cpu" />
+            <span class="mode-icon" aria-hidden="true">◉</span>
+            <span>Player vs Computer</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="scoreboard" aria-label="Player scores">
+        <article class="player-card player-x active" id="player-x-card">
+          <div class="player-mark" aria-hidden="true">X</div>
+          <div>
+            <p class="player-name">Player X</p>
+            <p class="score"><span id="score-x">0</span><span class="score-word"> wins</span></p>
+          </div>
+          <span class="turn-pill">Your turn</span>
+        </article>
+
+        <article class="player-card player-o" id="player-o-card">
+          <div class="player-mark" aria-hidden="true">O</div>
+          <div>
+            <p class="player-name" id="player-o-name">Player O</p>
+            <p class="score"><span id="score-o">0</span><span class="score-word"> wins</span></p>
+          </div>
+          <span class="turn-pill">Your turn</span>
+        </article>
+      </section>
+
+      <section class="game-panel" aria-label="Tic Tac Toe game">
+        <div class="status-wrap">
+          <span class="status-orb" aria-hidden="true"></span>
+          <p id="game-status" class="game-status" aria-live="polite">Player X's turn</p>
+        </div>
+
+        <div class="board" role="grid" aria-label="Tic Tac Toe board" aria-describedby="game-status">
+          <button class="cell" type="button" role="gridcell" data-index="0" aria-label="Cell 1, empty"></button>
+          <button class="cell" type="button" role="gridcell" data-index="1" aria-label="Cell 2, empty"></button>
+          <button class="cell" type="button" role="gridcell" data-index="2" aria-label="Cell 3, empty"></button>
+          <button class="cell" type="button" role="gridcell" data-index="3" aria-label="Cell 4, empty"></button>
+          <button class="cell" type="button" role="gridcell" data-index="4" aria-label="Cell 5, empty"></button>
+          <button class="cell" type="button" role="gridcell" data-index="5" aria-label="Cell 6, empty"></button>
+          <button class="cell" type="button" role="gridcell" data-index="6" aria-label="Cell 7, empty"></button>
+          <button class="cell" type="button" role="gridcell" data-index="7" aria-label="Cell 8, empty"></button>
+          <button class="cell" type="button" role="gridcell" data-index="8" aria-label="Cell 9, empty"></button>
+        </div>
+
+        <p id="round-message" class="round-message" aria-live="assertive" aria-atomic="true"></p>
+
+        <div class="controls">
+          <button id="play-again" class="button button-primary" type="button">
+            <span aria-hidden="true">↻</span> Play Again
+          </button>
+          <button id="reset-game" class="button button-secondary" type="button">
+            Reset Game
+          </button>
+        </div>
+
+        <button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="true">
+          <span id="sound-icon" aria-hidden="true">♪</span>
+          <span id="sound-label">Sound on</span>
+        </button>
+      </section>
+
+      <p class="keyboard-tip"><kbd>Tab</kbd> to move between cells · <kbd>Enter</kbd> to play</p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

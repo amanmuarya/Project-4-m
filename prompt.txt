@@ -1,0 +1,455 @@
+Advanced Tic-Tac-Toe Game — HTML, CSS & JavaScript
+
+Create a complete, modern, responsive Tic-Tac-Toe game using only HTML, CSS, and vanilla JavaScript. Do not use React, Bootstrap, Tailwind CSS, jQuery, or any external framework/library.
+
+1. Project Structure
+
+Create the project with these files:
+
+index.html
+style.css
+script.js
+
+Keep HTML, CSS, and JavaScript separated properly.
+
+2. Game Concept
+
+Build a classic 3×3 Tic-Tac-Toe game where two players take turns.
+
+Player 1 uses X
+Player 2 uses O
+Players click an empty cell to place their symbol.
+X always starts first.
+A player wins when they get three matching symbols in:
+Horizontal row
+Vertical column
+Diagonal
+
+Example winning combinations:
+
+[0, 1, 2]
+[3, 4, 5]
+[6, 7, 8]
+
+[0, 3, 6]
+[1, 4, 7]
+[2, 5, 8]
+
+[0, 4, 8]
+[2, 4, 6]
+3. User Interface
+
+Create a visually attractive modern game interface.
+
+The page should contain:
+
+Header
+
+Display:
+
+TIC TAC TOE
+
+Below it, show a small subtitle:
+
+Classic 3 × 3 Strategy Game
+Player Information
+
+Display two player cards:
+
+Player X
+Score: 0
+
+and
+
+Player O
+Score: 0
+
+Highlight the player whose turn it currently is.
+
+Example:
+
+Player X's Turn
+4. Game Board
+
+Create a centered 3×3 grid.
+
+Each cell should:
+
+Be square
+Be clearly separated
+Have a hover effect
+Have a smooth transition
+Display X or O prominently
+Become disabled after being selected
+Prevent a player from selecting an occupied cell
+
+Use CSS Grid for the board.
+
+Example:
+
+┌─────┬─────┬─────┐
+│  X  │     │  O  │
+├─────┼─────┼─────┤
+│     │  X  │     │
+├─────┼─────┼─────┤
+│  O  │     │     │
+└─────┴─────┴─────┘
+5. Game Logic
+
+Implement the complete game logic using JavaScript.
+
+Create a board array:
+
+let board = ["", "", "", "", "", "", "", ""];
+
+Create variables for:
+
+let currentPlayer = "X";
+let gameActive = true;
+let scoreX = 0;
+let scoreO = 0;
+
+When a player clicks a cell:
+
+Check whether the game is active.
+Check whether the cell is already occupied.
+Add the current player's symbol.
+Update the UI.
+Check whether someone won.
+Check whether the game is a draw.
+Switch the player if nobody has won.
+6. Winning Logic
+
+Create an array containing all winning combinations.
+
+For example:
+
+const winningConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
+
+Create a function:
+
+checkWinner()
+
+This function should determine whether the current player has three matching symbols.
+
+7. Winning Animation
+
+When a player wins:
+
+Highlight the three winning cells.
+Add a smooth animation.
+Display a message such as:
+🎉 Player X Wins!
+
+or:
+
+🎉 Player O Wins!
+
+The winning cells should visually stand out from the rest of the board.
+
+8. Draw Condition
+
+If all nine cells are filled and nobody wins:
+
+Display:
+
+🤝 It's a Draw!
+
+Do not allow additional moves after the draw.
+
+9. Score System
+
+Maintain scores during the current browser session.
+
+Example:
+
+Player X       Player O
+   3              2
+
+When X wins:
+
+scoreX++;
+
+When O wins:
+
+scoreO++;
+
+The score should remain unchanged when a game ends in a draw.
+
+10. Restart Round Button
+
+Add a button:
+
+Play Again
+
+When clicked:
+
+Clear the board.
+Reset all cells.
+Set X as the starting player.
+Set gameActive = true.
+Remove winning animations.
+Update the turn indicator.
+
+Important:
+
+Do not reset the scores when Play Again is clicked.
+
+11. Reset Game Button
+
+Add another button:
+
+Reset Game
+
+This button should:
+
+Clear the board.
+Reset Player X score to 0.
+Reset Player O score to 0.
+Set X as the starting player.
+Reset the game completely.
+
+Ask for confirmation before resetting the complete score.
+
+Example:
+
+confirm("Are you sure you want to reset the entire game?");
+12. Sound Effects
+
+Use JavaScript to add optional simple sound feedback.
+
+For example:
+
+Click sound when selecting a cell
+Winning sound when someone wins
+Draw sound when the game ends in a draw
+
+Do not use external audio libraries.
+
+If sound files are not available, structure the JavaScript so the sound feature can easily be added later.
+
+13. Responsive Design
+
+The game must work properly on:
+
+Desktop
+Laptop
+Tablet
+Mobile phone
+
+Use CSS media queries.
+
+On mobile:
+
+Reduce board size.
+Make buttons easy to tap.
+Keep the player cards readable.
+Prevent horizontal scrolling.
+
+Example:
+
+@media (max-width: 600px) {
+    .game-board {
+        width: 300px;
+        height: 300px;
+    }
+}
+14. Modern Visual Design
+
+Use a clean modern gaming UI.
+
+Design requirements:
+
+Center the game vertically and horizontally.
+Use a modern background.
+Use rounded cards.
+Add subtle shadows.
+Add hover effects.
+Add smooth transitions.
+Use a modern font.
+Make X and O visually different.
+Create a clear active-player indicator.
+
+Do not make the interface overly complicated.
+
+The main focus should remain on the game.
+
+15. Animations
+
+Add subtle CSS animations.
+
+For example:
+
+Cell Animation
+
+When X or O appears:
+
+scale(0.5) → scale(1)
+Winning Animation
+
+Winning cells should have a pulse/glow animation.
+
+Button Hover
+
+Buttons should slightly move or scale when hovered.
+
+Keep animations smooth and professional.
+
+16. Accessibility
+
+Make the game accessible.
+
+Each cell should be a <button> rather than a generic <div> whenever possible.
+
+Add useful attributes such as:
+
+aria-label="Cell 1"
+
+Buttons should be keyboard accessible.
+
+Use visible focus styles.
+
+Make sure the text has sufficient contrast against the background.
+
+17. JavaScript Functions
+
+Organize the JavaScript into small functions.
+
+Use functions such as:
+
+handleCellClick()
+checkWinner()
+checkDraw()
+switchPlayer()
+endGame()
+restartRound()
+resetGame()
+updateBoard()
+updateScore()
+updateTurnMessage()
+
+Avoid putting the entire game logic inside one large function.
+
+Use clear variable and function names.
+
+18. Code Quality
+
+Follow these rules:
+
+Use semantic HTML.
+Use modern JavaScript (const, let, arrow functions where appropriate).
+Avoid unnecessary global variables.
+Add comments for important logic.
+Keep code beginner-friendly.
+Do not use unnecessary complex algorithms.
+Do not use external frameworks.
+Do not use inline CSS.
+Do not use inline JavaScript.
+Keep HTML, CSS, and JS in separate files.
+19. Optional Extra Feature — Game Mode
+
+Add a game mode selection:
+
+Choose Mode
+
+[ Player vs Player ]
+
+[ Player vs Computer ]
+
+For Player vs Computer, implement a simple AI.
+
+The computer should:
+
+Check if it can win.
+Block the player's winning move.
+Prefer the center cell.
+Prefer corner cells.
+Otherwise choose a random available cell.
+
+Do not make the AI unnecessarily complicated.
+
+20. Game Status
+
+At the top of the board display the current status.
+
+Examples:
+
+Player X's Turn
+Player O's Turn
+🎉 Player X Wins!
+🤝 Match Draw!
+21. Final UI Layout
+
+The final page should approximately look like:
+
+             TIC TAC TOE
+       Classic 3 × 3 Strategy Game
+
+       ┌────────────┐  ┌────────────┐
+       │  Player X  │  │  Player O  │
+       │   Score: 2 │  │   Score: 1 │
+       └────────────┘  └────────────┘
+
+             Player X's Turn
+
+          ┌─────┬─────┬─────┐
+          │  X  │     │  O  │
+          ├─────┼─────┼─────┤
+          │     │  X  │     │
+          ├─────┼─────┼─────┤
+          │  O  │     │  X  │
+          └─────┴─────┴─────┘
+
+             🎉 Player X Wins!
+
+          [ Play Again ]
+          [ Reset Game ]
+22. Important Requirements
+
+Make sure:
+
+The game actually works.
+X and O alternate correctly.
+An occupied cell cannot be selected again.
+Winning combinations are detected correctly.
+Draws are detected correctly.
+The game stops after a win or draw.
+Winning cells are highlighted.
+Scores update correctly.
+Play Again preserves scores.
+Reset Game clears scores.
+The UI is responsive.
+No console errors occur.
+No external framework is required.
+23. Output Requirement
+
+Provide the complete code for:
+
+index.html
+
+Include the complete HTML.
+
+style.css
+
+Include the complete CSS.
+
+script.js
+
+Include the complete JavaScript.
+
+After providing the code, briefly explain:
+
+How the board works.
+How the winning logic works.
+How the score system works.
+How the restart functionality works.
+How the computer AI works, if implemented.
